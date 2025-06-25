@@ -15,9 +15,8 @@ Route::post('register',[AuthController::class,'registerInsert'])->name('register
 Route::get('loginform',[AuthController::class,'loginForm'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
 
-Route::resource('upload',UploadController::class);
-
 Route::middleware(['auth'])->group( function(){
     Route::resource('user',UserController::class);
     Route::get('logout',[AuthController::class,'logout']);
+    Route::resource('upload',UploadController::class);
 });
